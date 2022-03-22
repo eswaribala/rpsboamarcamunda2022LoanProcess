@@ -62,6 +62,36 @@
                    class="form-control" />
         </div>
     </div>
+    <div class="control-group">
+        <label class="control-label">Age</label>
+        <div class="controls">
+            <input type="number"
+                   cam-variable-name="age"
+                   cam-variable-type="Integer"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Cibil Score</label>
+        <div class="controls">
+            <input type="number"
+                   cam-variable-name="cibilScore"
+                   cam-variable-type="Integer"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">House</label>
+        <div class="controls">
+            <input type="text"
+                   cam-variable-name="house"
+                   cam-variable-type="Boolean"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
     <script cam-script type="text/form-script">
         $scope.open = function($event) {
           $event.preventDefault();

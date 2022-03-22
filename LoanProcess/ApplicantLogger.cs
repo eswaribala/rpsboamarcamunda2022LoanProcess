@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LoanProcess
 {
-    [ExternalTaskTopic("logger")]
+    [ExternalTaskTopic("applicantlog")]
     
     public class ApplicantLogger : IExternalTaskAdapter
     {
@@ -16,6 +16,11 @@ namespace LoanProcess
         {
             Console.WriteLine("Logged");
             Console.WriteLine("First Name={0}",externalTask.Variables["firstName"].Value);
+            Console.WriteLine("Last Name={0}", externalTask.Variables["lastName"].Value);
+            Console.WriteLine("MobileNo={0}", externalTask.Variables["mobileNo"].Value);
+            Console.WriteLine("Age={0}", externalTask.Variables["age"].Value);
+            Console.WriteLine("House={0}", externalTask.Variables["house"].Value);
+            Console.WriteLine("Cibil Score={0}", externalTask.Variables["cibilScore"].Value);
         }
     }
 }
