@@ -13,7 +13,7 @@ namespace LoanProcess
     {
         public void Execute(ExternalTask externalTask, ref Dictionary<string, object> resultVariables)
         {
-            Console.WriteLine(externalTask.Variables["decision"].Value);
+            Console.WriteLine("DMN Output{0}",externalTask.Variables["decision"].Value);
         }
     }
 }

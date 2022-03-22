@@ -62,7 +62,7 @@
       </rule>
       <rule id="DecisionRule_0ap7lq0">
         <inputEntry id="UnaryTests_0qjxu74">
-          <text>18</text>
+          <text>&gt; 18</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1g9i5wy">
           <text>[600..1000[</text>
