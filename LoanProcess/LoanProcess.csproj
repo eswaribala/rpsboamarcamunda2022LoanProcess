@@ -9,6 +9,7 @@
     <None Remove="Decisions\loandecision.dmn" />
     <None Remove="Forms\applicant-form.html" />
     <None Remove="Forms\dmn-result.html" />
+    <None Remove="Forms\task-form-pdf-upload.html" />
     <None Remove="loanprocess.bpmn" />
   </ItemGroup>
 
@@ -20,6 +21,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\applicant-form.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\task-form-pdf-upload.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="loanprocess.bpmn">
