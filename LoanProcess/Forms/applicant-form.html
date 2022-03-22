@@ -1,0 +1,72 @@
+﻿<h1>Applicant Form</h1>
+<form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label">Adharcard No </label>
+        <div class="controls">
+            <input type="text"
+                   cam-variable-name="adharcardNo"
+                   cam-variable-type="String"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Application Date</label>
+        <div class="controls">
+            <p class="input-group">
+                <input type="text"
+                       cam-variable-name="doa"
+                       cam-variable-type="Date"
+                       class="form-control"
+                       datepicker-popup="yyyy-MM-dd'T'HH:mm:ss"
+                       is-open="dateFieldOpened" />
+
+                <span class="input-group-btn">
+                    <button type="button"
+                            class="btn btn-default"
+                            ng-click="open($event)">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+            <input type="text"
+                   cam-variable-name="firstName"
+                   cam-variable-type="String"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Name</label>
+        <div class="controls">
+            <input type="text"
+                   cam-variable-name="lastName"
+                   cam-variable-type="String"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Mobile No</label>
+        <div class="controls">
+            <input type="text"
+                   cam-variable-name="mobileNo"
+                   cam-variable-type="Long"
+                   required
+                   class="form-control" />
+        </div>
+    </div>
+    <script cam-script type="text/form-script">
+        $scope.open = function($event) {
+          $event.preventDefault();
+          $event.stopPropagation();
+          $scope.dateFieldOpened = true;
+        };
+    </script>
+</form>
