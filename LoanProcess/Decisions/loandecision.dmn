@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Loan_Definition" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.11.0">
+  <decision id="Loan_Decision" name="Loan Decision">
+    <decisionTable id="DecisionTable_0kxxixy" hitPolicy="FIRST">
+      <input id="Input_1" camunda:inputVariable="age">
+        <inputExpression id="InputExpression_1" typeRef="integer">
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1kd5753" camunda:inputVariable="cibilScore">
+        <inputExpression id="LiteralExpression_0cyx627" typeRef="integer">
+          <text>cibilScore</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_111405e" camunda:inputVariable="house">
+        <inputExpression id="LiteralExpression_0gkgffh" typeRef="boolean">
+          <text>house</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" name="decision" typeRef="boolean" />
+      <rule id="DecisionRule_12zn6i6">
+        <inputEntry id="UnaryTests_02zao8d">
+          <text>&lt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_188g6x5">
+          <text>0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xxf58m">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kv0r4t">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1l2jglv">
+        <inputEntry id="UnaryTests_0djy47r">
+          <text>&gt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_024z81d">
+          <text>[0..500]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v9uggb">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i8wxzw">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kjyc4m">
+        <inputEntry id="UnaryTests_00lnlb0">
+          <text>&gt; 18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hewgdk">
+          <text>[600..1000]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qckbzn">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ulha1v">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ap7lq0">
+        <inputEntry id="UnaryTests_0qjxu74">
+          <text>18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g9i5wy">
+          <text>[600..1000[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wfdurp">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hux914">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lgsmbf">
+        <inputEntry id="UnaryTests_1n9ln0s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19v66fj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0po7imm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0s4iy4f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Loan_Decision">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
