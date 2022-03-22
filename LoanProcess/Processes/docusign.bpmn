@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_09uq66j" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="DocuSign_Activity" name="Document Signing" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0nrtxo6</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0nrtxo6" sourceRef="StartEvent_1" targetRef="DocuPrepare_Activity" />
+    <bpmn:userTask id="DocuPrepare_Activity" name="Document Preparation">
+      <bpmn:incoming>Flow_0nrtxo6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yj8pd2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1yj8pd2" sourceRef="DocuPrepare_Activity" targetRef="Document_Signing_Activity" />
+    <bpmn:endEvent id="Event_0xkk0vk">
+      <bpmn:incoming>Flow_1ikqcc5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ikqcc5" sourceRef="Document_Signing_Activity" targetRef="Event_0xkk0vk" />
+    <bpmn:userTask id="Document_Signing_Activity" name="Document Signing" camunda:assignee="demo">
+      <bpmn:incoming>Flow_1yj8pd2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ikqcc5</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="Notify_Event" name="Notify Event" attachedToRef="Document_Signing_Activity">
+      <bpmn:outgoing>Flow_0fa2900</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_1xqg31s">
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R5/PT2M</bpmn:timeCycle>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_0fa2900" sourceRef="Notify_Event" targetRef="Notify_Activity" />
+    <bpmn:endEvent id="Event_0xko5qg">
+      <bpmn:incoming>Flow_0reh352</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0reh352" sourceRef="Notify_Activity" targetRef="Event_0xko5qg" />
+    <bpmn:userTask id="Notify_Activity" name="Notify Customer">
+      <bpmn:incoming>Flow_0fa2900</bpmn:incoming>
+      <bpmn:outgoing>Flow_0reh352</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="DocuSign_Activity">
+      <bpmndi:BPMNEdge id="Flow_0nrtxo6_di" bpmnElement="Flow_0nrtxo6">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yj8pd2_di" bpmnElement="Flow_1yj8pd2">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="430" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ikqcc5_di" bpmnElement="Flow_1ikqcc5">
+        <di:waypoint x="530" y="117" />
+        <di:waypoint x="592" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fa2900_di" bpmnElement="Flow_0fa2900">
+        <di:waypoint x="480" y="175" />
+        <di:waypoint x="480" y="240" />
+        <di:waypoint x="550" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0reh352_di" bpmnElement="Flow_0reh352">
+        <di:waypoint x="650" y="240" />
+        <di:waypoint x="702" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1e9c21r_di" bpmnElement="DocuPrepare_Activity" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0xkk0vk_di" bpmnElement="Event_0xkk0vk" bioc:stroke="#e53935" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#e53935">
+        <dc:Bounds x="592" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08pzvev_di" bpmnElement="Document_Signing_Activity" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="430" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0xko5qg_di" bpmnElement="Event_0xko5qg" bioc:stroke="#e53935" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#e53935">
+        <dc:Bounds x="702" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0kkicc4_di" bpmnElement="Notify_Activity" bioc:stroke="#fb8c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#fb8c00">
+        <dc:Bounds x="550" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1pgngdx_di" bpmnElement="Notify_Event">
+        <dc:Bounds x="462" y="139" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="451" y="182" width="61" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

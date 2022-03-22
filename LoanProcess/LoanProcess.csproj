@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <None Remove="Decisions\loandecision.dmn" />
+    <None Remove="docusign.bpmn" />
     <None Remove="Forms\applicant-form.html" />
     <None Remove="Forms\dmn-result.html" />
     <None Remove="Forms\task-form-pdf-upload.html" />
@@ -16,6 +17,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Decisions\loandecision.dmn">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Processes\docusign.bpmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\dmn-result.html">
@@ -30,7 +34,7 @@
     <EmbeddedResource Include="Forms\task-form-pdf-viewer.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="loanprocess.bpmn">
+    <EmbeddedResource Include="Processes\loanprocess.bpmn">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
